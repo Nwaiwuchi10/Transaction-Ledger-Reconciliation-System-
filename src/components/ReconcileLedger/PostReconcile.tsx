@@ -13,7 +13,7 @@ type ReconciliationReport = {
 };
 
 const Reconciliation = () => {
-  const [uploadedBy, setUploadedBy] = useState("Admin");
+  const [uploadedBy] = useState("Admin");
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState<ReconciliationReport | null>(null);
   const [error, setError] = useState("");
