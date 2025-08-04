@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import AdminDashboard from "../../dashboard/Dashboard";
+import { Base_Url } from "../../Api/Base_url";
 
 type ReconciliationReport = {
   _id: string;
@@ -25,7 +26,9 @@ const Reconciliation = () => {
       const response = await axios.post<{
         message: string;
         report: ReconciliationReport;
-      }>("http://localhost:4000/reconciliation", { uploadedBy });
+      }>(`${Base_Url}/reconciliation`, {
+        uploadedBy,
+      });
       setReport(response.data.report);
     } catch (err: any) {
       setError(err.response?.data?.message || "Reconciliation failed");

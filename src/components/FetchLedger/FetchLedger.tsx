@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Base_Url } from "../../Api/Base_url";
 
 type Transaction = {
   _id: string;
@@ -32,7 +33,7 @@ const PaginatedTransactions = () => {
 
     try {
       const response = await axios.get<ApiResponse>(
-        "http://localhost:4000/transactions",
+        `${Base_Url}/transactions`,
         {
           params: {
             source: source || undefined,

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Base_Url } from "../../Api/Base_url";
 
 const CSVUploadForm: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -31,7 +32,7 @@ const CSVUploadForm: React.FC = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/transactions/upload/${system}`,
+        `${Base_Url}/transactions/upload/${system}`,
         formData,
         {
           headers: {
